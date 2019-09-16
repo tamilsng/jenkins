@@ -1,0 +1,50 @@
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/Jenkins/Installation.MD
+
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/Jenkins/maven_install.MD
+
+------------------------------------------------------------------------------
+       1  yum install java-1.8* -y
+    4  java -version
+    5  cd /
+    7  yum install wget  unzip -y
+    8  wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    9   rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+   10  mkdir /opt/maven
+          cd /opt/maven
+   17  wget  http://apachemirror.wuchna.com/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
+   19  unzip apache-maven-3.6.2-bin.zip
+   12  cd /root
+     find / -name javac
+
+   14  vi .bash_profile
+        echo $PATH
+    Open duplicate session 
+   10  yum install jenkins git -y
+   11  service jenkins start
+
+    cat /var/lib/jenkins/secrets/initialAdminPassword
+
+    Manage Jenkins > Global Tool Configuration > JDK and maven
+ 
+    Manage Jenkins > Jenkins Plugins > available > Maven Invoker and Maven integration
+   Manage Jenkins > Jenkins Plugins > available > github and ssh
+
+------------------------------------------------------------------------------
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64
+
+M2_HOME=/opt/maven/apache-maven-3.2.0
+
+M2=$M2_HOME/bin
+
+PATH=$PATH:$JAVA_HOME:$HOME/bin:$M2_HOME:$M2
+
+export PATH
+
