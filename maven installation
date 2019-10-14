@@ -1,0 +1,65 @@
+Maven Installation in RHEL
+https://www.linuxhelp.com/how-to-install-apache-maven-in-centos-7
+ 
+https://tecadmin.net/install-apache-maven-on-centos/
+
+Install Java 1.8*
+    1  yum install java-1.8* -y
+    4  java -version
+    5  cd /opt
+    7  yum install wget  unzip –y
+
+Download Maven 3.6.2 under /opt and rename that folder to maven
+
+   - wget  http://apachemirror.wuchna.com/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
+
+   -  unzip apache-maven-3.6.2-bin.zip
+   -   mv apache-maven-3.6.2 maven
+
+Set Environmental variables for java and Maven under /root/.bash_profile
+ 
+    - cd /root
+   -  vi .bash_profile
+
+  - echo $PATH    (open new session and check)
+
+ Make a symlink to maven/bin folder
+         -  ln -s /opt/maven/bin/mvn /usr/bin/mvn
+Setup ANT Environment Variable
+Create a file called maven.sh under /etc/profile.d/ directory. Add the following contents and save the file.
+   -  vi /etc/profile.d/maven.sh
+maven.sh
+#!/bin/bash
+MAVEN_HOME=/opt/maven
+PATH=$MAVEN_HOME/bin:$PATH
+export PATH MAVEN_HOME
+export CLASSPATH=.
+Make it executable by executing the following command.
+   -  chmod +x /etc/profile.d/maven.sh
+Then, set the environment variables permanently by running the following command.
+   -   source /etc/profile.d/maven.sh
+Check the Version
+   -  mvn –version
+
+---------------------------------------------------------------------------------------------------------------------------
+
+.bash_profile
+
+# .bash_profile
+ 
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+ 
+# User specific environment and startup programs
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el8_0.x86_64/bin/javac
+ 
+M2_HOME=/opt/maven/apache-maven-3.6.2
+ 
+M2=$M2_HOME/bin
+ 
+PATH=$PATH:$JAVA_HOME:$HOME/bin:$M2_HOME:$M2
+ 
+export PATH
+
