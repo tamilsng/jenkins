@@ -1,0 +1,57 @@
+AWS – RDS
+
+mysql -h mydb.cvvt2qjlewlw.ap-south-1.rds.amazonaws.com -P 3306 -u mysqldb2018 -p
+
+CREATE DATABASE BooksDB
+
+use BooksDB
+show tables;
+
+
+CREATE TABLE IF NOT EXISTS books (
+   book_id INT AUTO_INCREMENT,
+   title VARCHAR(255) NOT NULL,
+    author VARCHAR(255),
+    publish_date DATE,
+    description TEXT,
+ PRIMARY KEY (book_id)
+)   ENGINE=INNODB;
+
+INSERT INTO books (title, author) VALUES ('Learn AWS RDS' , 'John Simth');
+INSERT INTO books (title, author) VALUES ('MySQL Tips and Tricks' ,'Mary Jane');
+
+End()
+
+select * from books;
+
+
+
+Sonar
+
+https://medium.com/@mkaschke/how-to-install-sonarqube-on-aws-ec2-20e3a2fec634
+
+https://bhargavamin.com/how-to-do/install-configure-sonarqube-amazon-linux-aws/
+
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/SonarQube/SonarQube_Installation.MD
+
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/SonarQube/Sonar_Integration_with_Jenkins.MD
+
+1  yum install java-1.8* -y
+    4  java -version
+Amazon Linux
+ 
+    2  yum install mysql -y
+    3  yum install java-1.8.0-openjdk -y
+    4  cd /opt/
+    5  wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.0.zip
+    6  unzip sonarqube-6.0.zip
+    7  ls
+    8  mv sonarqube-6.0 sonar
+    9  rm -rf sonarqube-6.0.zip
+   10 mysql -h sonarqubedb.cvvt2qjlewlw.ap-south-1.rds.amazonaws.com -P 3306 -u sonarqubedb -p
+   12  vi /opt/sonar/conf/sonar.properties
+   13  cd /opt/sonar/bin/linux-x86-64/
+   14  ll
+   15  ./sonar.sh status
+   16  ./sonar.sh start
+
