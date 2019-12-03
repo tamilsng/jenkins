@@ -3,7 +3,7 @@ https://github.com/ValaxyTech/DevOpsDemos/blob/master/Jenkins/Installation.MD
 https://github.com/ValaxyTech/DevOpsDemos/blob/master/Jenkins/maven_install.MD
 
 ------------------------------------------------------------------------------
-       1  yum install java-1.8* -y
+    1  yum install java-1.8* -y
     4  java -version
     5  cd /
     7  yum install wget  unzip -y
