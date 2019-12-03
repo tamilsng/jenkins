@@ -14,7 +14,7 @@ Download Maven 3.6.2 under /opt and rename that folder to maven
    - wget  http://apachemirror.wuchna.com/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
 
    -  unzip apache-maven-3.6.2-bin.zip
-   -   mv apache-maven-3.6.2 maven
+   -   mv apache-maven-3.6.2 /opt/maven
 
 Set Environmental variables for java and Maven under /root/.bash_profile
  
@@ -55,7 +55,7 @@ fi
 # User specific environment and startup programs
 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el8_0.x86_64/bin/javac
  
-M2_HOME=/opt/maven/apache-maven-3.6.2
+M2_HOME=/opt/maven/
  
 M2=$M2_HOME/bin
  
